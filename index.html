@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EZ Frontend Test</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  h2 {
+    text-align: center;
+    color: #0078ff;
+  }
+  label {
+    font-weight: bold;
+  }
+  input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  button {
+    background-color: #0078ff;
+    color: white;
+    font-weight: bold;
+    border: none;
+  }
+  button:hover {
+    background-color: #005fcc;
+  }
+  p.success {
+    color: green;
+    text-align: center;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Contact Us</h2>
+  <form id="contactForm">
+    <label>Name</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <label>Phone</label>
+    <input type="text" id="phone" placeholder="Enter your phone" required>
+    <label>Message</label>
+    <textarea id="message" placeholder="Enter message" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="responseMsg" class="success"></p>
+</div>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const msg = document.getElementById('responseMsg');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    if (!email.includes('@') || !email.includes('.')) {
+      alert('Please enter a valid email address');
+      return;
+    }
+
+    msg.innerText = 'Form Submitted ✅';
+  });
+</script>
+
+</body>
+</html>
